@@ -1,0 +1,37 @@
+@import "bootstrap";
+
+#logo {
+  width: 150px;
+}
+
+.navbar-inverse {
+  background-color: #202020;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.nav-link {
+  text-align: center;
+  float: right;
+  display: inline-block;
+  color: white;
+  padding: 15px 10px;
+  max-width: 120px;
+  height: 55px;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  background-color: #4d4d4d;
+  color: white;
+}
+
+.nav-link:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link:active {
+  text-decoration: none;
+  color: white;
+}
