@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160517172514) do
 
   create_table "questions", force: :cascade do |t|
     t.integer  "game_id"
-    t.string   "question"
+    t.string   "query"
     t.string   "answer"
     t.string   "image_file_name"
     t.string   "image_content_type"
