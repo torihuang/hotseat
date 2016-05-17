@@ -11,5 +11,5 @@
 end
 
 15.times do
-  Game.create(creator: User.all.to_a.sample)
+  Game.create(creator: User.all.to_a.sample, title: ['Bachelorette Party', 'Family Game Night', 'Bridal Shower', 'Bachelor Party', 'Birthday Party', 'Graduation'].sample, victim: Faker::Name, answerer_name: Faker::Name, answerer_email: Faker::Internet.email)
 end
