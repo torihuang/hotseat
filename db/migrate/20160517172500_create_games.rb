@@ -4,7 +4,8 @@ class CreateGames < ActiveRecord::Migration
       t.integer :creator_id
       t.string  :title
       t.string  :victim
-      t.string  :answerer
+      t.string  :answerer_name
+      t.string  :answerer_email
       t.string  :answerer_url_key
 
       t.timestamps null: false
