@@ -4,7 +4,9 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :game_id
       t.string  :question
       t.string  :answer
+      t.attachment :image
 
+      t.integer :video_id
 
       t.timestamps null: false
     end
