@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hotseat</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>HotSeat</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li>
+              <a class="navbar-brand" href="#">
+                <%= image_tag 'logo.png', id: 'logo' %>
+              </a>
+            </li>
+            <li><a href="#" class="nav-link">Link</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+            </li>
+        </ul>
+    </div>
+  </nav>
 
 <%= yield %>
 
 </body>
 </html>
+
