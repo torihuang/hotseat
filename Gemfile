@@ -32,6 +32,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'sprockets-rails'
+gem 'sprockets', '~> 3.0'
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap-sass',       '3.2.0.0'
+gem "paperclip", "~> 5.0.0.beta1"
+gem 'faker'
+gem 'bcrypt'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
