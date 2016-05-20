@@ -58,22 +58,39 @@ $(document).ready(function() {
     })
   });
 
+  // Submit login
   $('#splashpage-screen').on('click', '#login-submit', function(e) {
     e.preventDefault();
     var data = $(this).parent().serialize()
-    var password = $(this).prev().val();
-    var email = $(this).prev().prev().val();
     $.ajax({
       method: 'POST',
       url: '/session',
-      data: {'email': email, 'password': password}
+      data: data
     })
     .done(function(response) {
       window.location.pathname = '/dashboard'
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
-      console.log("Fail");
-      console.log(jqXHR.responseText);
+      $('#login-form').remove();
+      $('#signup-form').remove();
+      $('#splashpage-screen').append(jqXHR.responseText)
+    });
+  })
+
+  // Submit signup
+  $('#splashpage-screen').on('click', '#signup-submit', function(e) {
+    e.preventDefault();
+    var data = $(this).parent().serialize()
+    console.log(data);
+    $.ajax({
+      method: 'POST',
+      url: '/users',
+      data: data
+    })
+    .done(function(response) {
+      window.location.pathname = '/dashboard'
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
       $('#login-form').remove();
       $('#signup-form').remove();
       $('#splashpage-screen').append(jqXHR.responseText)

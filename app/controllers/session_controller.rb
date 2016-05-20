@@ -11,13 +11,11 @@ class SessionController < ApplicationController
     password = params['password']
 
     user = User.authenticate!({email: email, password: password})
-    if user
+    if !user.nil?
       session[:user_id] = user.id
-      puts "============================="
-      puts session[:user_id]
       redirect_to '/dashboard'
     elsif request.xhr?
-      render partial: 'login', success: false, locals: {errors: ['invalid email and username combination']}
+      render partial: 'login', status: 400, locals: {errors: ['invalid email and username combination']}
     else
       render partial: 'login', locals: {errors: ['invalid email and username combination']}
     end

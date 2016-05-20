@@ -12,10 +12,4 @@ module SessionHelper
     end
   end
 
-  def test
-    puts "=================================="
-    puts session[:user_id]
-    return true
-  end
-
 end

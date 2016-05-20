@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :password_digest, presence: true
   validates :email, presence: true, uniqueness: true
   has_secure_password
 
@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate!(user_params)
-    puts "IN AUTHENTICATE*********************"
     email_input = user_params[:email]
     password_input = user_params[:password]
 
