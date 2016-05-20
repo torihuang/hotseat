@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :password_digest, presence: true
   validates :email, presence: true, uniqueness: true
   has_secure_password
 
@@ -12,5 +12,17 @@ class User < ActiveRecord::Base
   def password=(new_password)
     @password = BCrypt::Password.create(new_password)
     self.password_digest = @password
+  end
+
+  def self.authenticate!(user_params)
+    email_input = user_params[:email]
+    password_input = user_params[:password]
+
+    user = User.find_by(email: email_input)
+    if email_input != nil && user && user.password == password_input
+      return user
+    else
+      return nil
+    end
   end
 end
