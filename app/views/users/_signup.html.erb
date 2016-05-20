@@ -1,6 +1,6 @@
 <section id='signup-form'>
-  <% if @errors %>
-    <% @errors.each do |error| %>
+  <% if errors %>
+    <% errors.each do |error| %>
       <p> <%= error %></p>
     <% end %>
   <% end %>

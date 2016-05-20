@@ -1,6 +1,6 @@
 <section id='login-form'>
-  <% if @errors %>
-    <% @errors.each do |error| %>
+  <% if errors %>
+    <% errors.each do |error| %>
       <p> <%= error %></p>
     <% end %>
   <% end %>
@@ -8,6 +8,6 @@
   <%= form_for :session, url: session_index_path do |f| %>
     <%= f.email_field :email, placeholder: "Email", class: "form-field" %>
     <%= f.password_field :password, placeholder: "Password", class: "form-field" %>
-    <%= f.submit "Submit", class: "btn btn-default" %>
+    <%= f.submit "Submit", class: "btn btn-default", id: 'login-submit' %>
   <% end %>
 </session>

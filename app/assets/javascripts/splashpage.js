@@ -5,6 +5,14 @@ $(document).ready(function() {
   if (window.location.pathname == "/") {
     var index = 0;
 
+      var imageUrl = imgs[imgs.length - 1]
+      $('body').css('background', 'url(/assets/' + imageUrl + ') no-repeat center center fixed');
+      $('body').css('-webkit-background-size', 'cover');
+      $('body').css('-webkit-background-size', 'cover');
+      $('body').css('-moz-background-size', 'cover');
+      $('body').css('-o-background-size', 'cover');
+      $('body').css('background-size', 'cover');
+
     var myInterval = setInterval(function () {
       var imageUrl = imgs[index]
       $('body').css('background', 'url(/assets/' + imageUrl + ') no-repeat center center fixed');
@@ -20,7 +28,7 @@ $(document).ready(function() {
     },5000);
   };
 
-  // Login
+  // Login form show
   $('#login').on('click', function(e) {
     e.preventDefault();
     var $this = $(this);
@@ -35,7 +43,7 @@ $(document).ready(function() {
     })
   });
 
-  // Signup
+  // Signup form show
   $('#signup').on('click', function(e) {
     e.preventDefault();
     var $this = $(this);
@@ -49,4 +57,26 @@ $(document).ready(function() {
       $('#splashpage-screen').append(response)
     })
   });
+
+  $('#splashpage-screen').on('click', '#login-submit', function(e) {
+    e.preventDefault();
+    var data = $(this).parent().serialize()
+    var password = $(this).prev().val();
+    var email = $(this).prev().prev().val();
+    $.ajax({
+      method: 'POST',
+      url: '/session',
+      data: {'email': email, 'password': password}
+    })
+    .done(function(response) {
+      window.location.pathname = '/dashboard'
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.log("Fail");
+      console.log(jqXHR.responseText);
+      $('#login-form').remove();
+      $('#signup-form').remove();
+      $('#splashpage-screen').append(jqXHR.responseText)
+    });
+  })
 });

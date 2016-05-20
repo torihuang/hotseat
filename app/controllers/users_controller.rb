@@ -9,4 +9,9 @@ class UsersController < ApplicationController
   def create
 
   end
+
+  def show
+    user = current_user
+    render 'dashboard', locals: {user: user}
+  end
 end
