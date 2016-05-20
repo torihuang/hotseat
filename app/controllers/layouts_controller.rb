@@ -1,5 +1,11 @@
 class LayoutsController < ApplicationController
+
   def index
-    render "index"
+    if logged_in?
+      render "index"
+    else
+      render "splashpage"
+    end
   end
+
 end
