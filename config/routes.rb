@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'layouts#splashpage'
 
-  resources :session, only: [:new, :create, :destroy]
+  resources :session, only: [:new, :create]
   resources :users, only: [:new, :create, :edit]
 
+  get 'session/destroy' => 'session#destroy'
   get 'dashboard' => 'users#show'
 
   # Example of regular route:
