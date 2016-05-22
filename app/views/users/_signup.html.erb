@@ -6,6 +6,7 @@
   <% end %>
 
   <%= form_for :users, url: users_path do |f| %>
+    <span class='white-text'>Signup to create your first game</span>
     <%= f.text_field :first_name, placeholder: "First Name", class: "form-field" %>
     <%= f.text_field :last_name, placeholder: "Last Name", class: "form-field" %>
     <%= f.email_field :email, placeholder: "Email", class: "form-field" %>
