@@ -28,8 +28,23 @@ $(document).ready(function() {
     },5000);
   };
 
+  // Signup form show load
+  var loadSignup = function() {
+    $.ajax({
+      method: 'GET',
+      url: '/users/new'
+    })
+    .done(function(response) {
+      $('#signup-form-div').append(response)
+      $('#signup').addClass('hidden')
+      $('#login').removeClass('hidden')
+    })
+  };
+
+  loadSignup();
+
   // Login form show
-  $('#login').on('click', function(e) {
+  $('#splashpage-screen').on('click', '#login', function(e) {
     e.preventDefault();
     var $this = $(this);
     $.ajax({
@@ -40,23 +55,18 @@ $(document).ready(function() {
       $('#login-form').remove();
       $('#signup-form').remove();
       $('#splashpage-screen').append(response)
+      $('#login').addClass('hidden')
+      $('#signup').removeClass('hidden')
     })
   });
 
-  // Signup form show
-  $('#signup').on('click', function(e) {
+  // Signup form show after login click
+  $('#splashpage-screen').on('click', '#signup', function(e) {
     e.preventDefault();
-    var $this = $(this);
-    $.ajax({
-      method: 'GET',
-      url: '/users/new'
-    })
-    .done(function(response) {
-      $('#login-form').remove();
-      $('#signup-form').remove();
-      $('#splashpage-screen').append(response)
-    })
-  });
+    $('#login-form').remove();
+    $('#signup-form').remove();
+    loadSignup();
+  })
 
   // Submit login
   $('#splashpage-screen').on('click', '#login-submit', function(e) {
