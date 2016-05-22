@@ -31,8 +31,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    user = current_user
-    render 'dashboard', locals: {user: user}
-  end
+  # def show
+  #   user = current_user
+  #   games = user.games
+  #   render 'dashboard', locals: {user: user, games: games}
+  # end
 end

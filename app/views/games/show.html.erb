@@ -1,0 +1,12 @@
+<div id='game_card-collection'>
+  <a href="/games/new">
+    <div class='game_card'>
+        <span class='game_card-title game_card-details'>+</span>
+        <span class='game_card-details'>New</span>
+        <span class='game_card-details'>Game</span>
+    </div>
+  </a>
+  <% @games.each do |game| %>
+    <%= render partial: 'game_card', locals: {game: game} %>
+  <% end %>
+</div>

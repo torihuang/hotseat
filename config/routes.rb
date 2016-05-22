@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit]
 
   get 'session/destroy' => 'session#destroy'
-  get 'dashboard' => 'users#show'
+  get 'dashboard' => 'games#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
