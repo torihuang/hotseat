@@ -2,7 +2,14 @@ class GamesController < ApplicationController
 
   def show
     @games = current_user.games
-    render 'show'
+    @game = Game.new
+    render 'show', locals: {errors: nil}
   end
+
+  def new
+    @game = Game.new
+  end
+
+
 
 end
