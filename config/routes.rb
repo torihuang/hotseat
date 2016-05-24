@@ -8,6 +8,14 @@ Rails.application.routes.draw do
   resources :session, only: [:new, :create]
   resources :users, only: [:new, :create, :edit]
 
+  resources :games, only: [:new, :create, :edit] do
+    resources :questions, only: [:new, :create] do
+      resources :answers, only: [:new, :create]
+    end
+  end
+
+  get '/games/:id/play' => 'games#play'
+
   get 'session/destroy' => 'session#destroy'
   get 'dashboard' => 'games#show'
 

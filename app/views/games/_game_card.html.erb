@@ -1,7 +1,12 @@
 <a href="/games/<%= game.id %>">
-  <div class='game_card'>
+  <div class='game_card' id="<%= game.id %>">
       <span class='game_card-title game_card-details'><%= game.title %></span>
       <span class='game_card-details'><%= game.victim %></span>
       <span class='game_card-details'><%= game.answerer_name %></span>
+      <div id='game_card-buttons'>
+        <div class='game_card-button' id='play-game'>Play</div>
+        <div class='game_card-button' id='edit-game'>Edit</div>
+        <div class='game_card-button' id='download-game'>Dnld</div>
+      </div>
   </div>
 </a>

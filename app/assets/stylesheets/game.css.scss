@@ -12,9 +12,29 @@
   display: inline-block;
   padding: 5px;
   background: black;
+  position: relative;
 }
 
 .game_card-details {
   display: block;
   color: #fff;
+}
+
+#game_card-buttons {
+  width: 100%;
+  position: absolute;
+  top: 100px;
+  left: 5px;
+  display: none;
+}
+
+.game_card-button {
+  text-align: center;
+  padding-top: 25px;
+  width: 75px;
+  height: 75px;
+  border-radius: 40px;
+  background: #fff;
+  color: black;
+  display: inline-block;
 }

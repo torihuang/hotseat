@@ -9,7 +9,22 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class='new-user'>
+          <% if errors %>
+            <% errors.each do |error| %>
+              <p class='error white-text'> <%= error %></p>
+            <% end %>
+          <% end %>
 
+          <%= form_for @game, url: games_path do |f| %>
+            <!-- <span class='white-text'>Signup to create your first game</span> -->
+            <%= f.text_field :title, placeholder: "Title", class: "form-field" %>
+            <%= f.text_field :victim, placeholder: "Who is this game for?", class: "form-field" %>
+            <%= f.text_field :answerer_name, placeholder: "Who will answer the questions?", class: "form-field" %>
+            <%= f.text_field :answerer_email, placeholder: "Email of the person to answer the questions", class: "form-field" %>
+
+            <!-- <a href="#" id='new-question'>New Question</a> -->
+            <%= f.submit "Create", class: "btn btn-default", id: 'create-game-submit' %>
+          <% end %>
         </div>
       </div>
     </div>
