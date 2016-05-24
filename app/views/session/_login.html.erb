@@ -2,7 +2,7 @@
   <span class='white-text'>Login here</span>
   <% if errors %>
     <% errors.each do |error| %>
-      <p> <%= error %></p>
+      <p class='error white-text'> <%= error %></p>
     <% end %>
   <% end %>
 
@@ -11,4 +11,4 @@
     <%= f.password_field :password, placeholder: "Password", class: "form-field" %>
     <%= f.submit "Submit", class: "btn btn-default", id: 'login-submit' %>
   <% end %>
-</session>
+</section>

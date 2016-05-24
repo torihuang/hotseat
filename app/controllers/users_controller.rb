@@ -7,13 +7,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    puts "===================================="
-    puts params
-    user_inputs = params['users']
-    first_name = user_inputs['first_name']
-    last_name = user_inputs['last_name']
-    email = user_inputs['email']
-    password = user_inputs['password']
+    first_name = user_params['first_name']
+    last_name = user_params['last_name']
+    email = user_params['email']
+    password = user_params['password']
 
     user = User.new(first_name: first_name, last_name: last_name, email: email, password: password)
     if user.valid? && password != ""
@@ -31,8 +28,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    user = current_user
-    render 'dashboard', locals: {user: user}
-  end
+  private
+    def user_params
+      params.require(:users).permit(:first_name, :last_name, :email, :password)
+    end
 end

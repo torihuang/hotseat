@@ -7,8 +7,8 @@ class SessionController < ApplicationController
   end
 
   def create
-    email = params['email']
-    password = params['password']
+    email = session_params['email']
+    password = session_params['password']
 
     user = User.authenticate!({email: email, password: password})
     if !user.nil?

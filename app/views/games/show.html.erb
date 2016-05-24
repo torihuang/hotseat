@@ -1,0 +1,42 @@
+<div id='game_card-collection'>
+  <div type="button" class="game_card btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+    <span class='game_card-title game_card-details'>+</span>
+    <span class='game_card-details'>New</span>
+    <span class='game_card-details'>Game</span>
+  </div>
+
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class='new-user'>
+          <% if errors %>
+            <% errors.each do |error| %>
+              <p class='error white-text'> <%= error %></p>
+            <% end %>
+          <% end %>
+
+          <%= form_for @game, url: games_path do |f| %>
+            <!-- <span class='white-text'>Signup to create your first game</span> -->
+            <%= f.text_field :title, placeholder: "Title", class: "form-field" %>
+            <%= f.text_field :victim, placeholder: "Who is this game for?", class: "form-field" %>
+            <%= f.text_field :answerer_name, placeholder: "Who will answer the questions?", class: "form-field" %>
+            <%= f.text_field :answerer_email, placeholder: "Email of the person to answer the questions", class: "form-field" %>
+
+            <!-- <a href="#" id='new-question'>New Question</a> -->
+            <%= f.submit "Create", class: "btn btn-default", id: 'create-game-submit' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="/games/new">
+    <div class='game_card'>
+        <span class='game_card-title game_card-details'>+</span>
+        <span class='game_card-details'>New</span>
+        <span class='game_card-details'>Game</span>
+    </div>
+  </a>
+  <% @games.each do |game| %>
+    <%= render partial: 'game_card', locals: {game: game} %>
+  <% end %>
+</div>

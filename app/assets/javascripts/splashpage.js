@@ -106,4 +106,15 @@ $(document).ready(function() {
       $('#splashpage-screen').append(jqXHR.responseText)
     });
   })
+
+  $('#logout').on('click', function(e) {
+    e.preventDefault();
+    $.ajax({
+      method: 'GET',
+      url: '/session/destroy'
+    })
+    .done(function(response) {
+      window.location.pathname='/';
+    })
+  })
 });
